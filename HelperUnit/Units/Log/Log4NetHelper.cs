@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using log4net;
 
 [assembly: log4net.Config.XmlConfigurator(ConfigFile = @"log4net.config", Watch = true)]
-namespace HelperUnit.Log
+namespace HelperUnit.Units.Log
 {
     public static class Log4NetHelper
     {

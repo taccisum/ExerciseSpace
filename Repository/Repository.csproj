@@ -46,12 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericRepositoryProxy\ValidateProxy.cs" />
+    <Compile Include="GenericRepository\GenericRepositoryProxy.cs" />
     <Compile Include="GenericRepository\GenericRepository.cs" />
     <Compile Include="IGenericRepository\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Global\Global.csproj">
+      <Project>{c2be7b4b-0101-485b-a92d-7acbc42646f8}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HelperUnit\HelperUnit.csproj">
+      <Project>{8142b85f-b0c3-49ca-a3f7-fd4e7dae410d}</Project>
+      <Name>HelperUnit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Models\Model.csproj">
       <Project>{7038a79a-4514-4fca-8bb9-a12f1153960b}</Project>
       <Name>Model</Name>

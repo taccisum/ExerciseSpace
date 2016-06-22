@@ -5,8 +5,12 @@ using System.Web;
 
 namespace Global.Configs
 {
-    public static class GlobalConfig
+    public static class GlobalContext
     {
-        public const string DataBase = "MvcDemo";
+        public const string DATABASE = "MvcDemo";
+
+        public const string AUTOLOGIN = "AUTOLOGIN";
+
+        public const string CURRENT_USER = "CURRENT_USER";
     }
 }

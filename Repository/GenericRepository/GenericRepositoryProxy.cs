@@ -7,7 +7,7 @@ using Model.Models;
 using Practice.Unit;
 using Repository.GenericRepository;
 
-namespace Repository.GenericRepositoryProxy
+namespace Repository.GenericRepository
 {
     public class ValidateProxy<T> : IGenericRepository<T> where T : DTO
     {

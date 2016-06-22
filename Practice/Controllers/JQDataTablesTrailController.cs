@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Factory;
-using HelperUnit.Log;
 using log4net;
 using Model.Models;
 using Practice.ViewModels;

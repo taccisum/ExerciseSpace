@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Model.Models
 {
-    [Table("tac.User")]
+    [Table("dbo.SysUser")]
     public class SysUser : DTO
     {
         public string Uid { get; set; }

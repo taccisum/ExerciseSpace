@@ -9,9 +9,119 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
+
+    @{
+        Html.RenderPartial("Quote", null);
+    }
+    
 </head>
 <body>
-    <div> 
+<style>
+    body {
+        font-family: 微软雅黑;
+        font-size: 13px;
+    }
+    h1 {
+        font-size: 40px;
+        color: gray;
+        margin-bottom: 20px;
+    }
+
+     .blank {
+         height: 200px;
+     }
+    .container {
+        text-align: center;
+        height: auto;
+    }
+
+    .bound {
+        /*background: skyblue;*/
+        border: rgb(222,222,222) 1px solid;
+        border-radius: 5px;
+        box-shadow: gray 2px 2px 5px;
+        height: 230px;
+        width: 450px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .click {
+        cursor: pointer;
+    }
+</style>
+
+<div class="blank"></div>
+<div class="container">
+    <div class="title" style="margin: 0 auto;">
+        <h1>Login</h1>
     </div>
+    <div class="bound">
+        <div class="input-group input-group-md" style="width: 80%; margin: 0 auto; margin-top: 40px;">
+            <span class="input-group-addon">用户名</span>
+            <input class="form-control" data-bind="value: uid"/>
+        </div>
+        <div class="input-group input-group-md" style="width: 80%; margin: 0 auto; margin-top: 15px;">
+            <span class="input-group-addon">密　码</span>
+            <input class="form-control" type="password" data-bind="value: psd, attr:{'type':psdVisible()?'text':'password' }"/>
+            <span class="input-group-btn">
+                <button id="btn-psd_visible" class="btn btn-default" type="button">
+                    <span class="glyphicon" data-bind="css:{
+                    'glyphicon-eye-open':!psdVisible()
+                    ,'glyphicon-eye-close':psdVisible()}">
+                    </span>
+                </button>
+            </span>
+        </div>
+        <div style="margin-top: 15px; margin-right: 80px; text-align: right;">
+            <input type="checkbox" data-bind="checked: remeber" />
+            <span class="click" onclick="vm.remeber(!vm.remeber())">记住密码</span>
+        </div>
+        <div style="margin-top: 10px;">
+            <button class="btn btn-info btn-md" type="button" style="width: 80px;"> 注册 </button>
+            &nbsp;&nbsp;&nbsp;
+            <button id="btn-login" class="btn btn-default btn-md" type="button" data-bind="text: loginBtnText" style="width: 80px;"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    var vm = {
+        uid: ko.observable("Admin"),
+        psd: ko.observable("admin"),
+        remeber: ko.observable(true),
+        psdVisible: ko.observable(false),
+        loginBtnText: ko.observable("登录")
+    }
+
+    function BindingEvents() {
+        $("#btn-psd_visible").bind("click", function () {
+            vm.psdVisible(!vm.psdVisible());
+        });
+        $("#btn-login").bind("click", function () {
+            var $btn = $(this);
+            vm.loginBtnText("登录中");
+            $btn.addClass("disabled").attr("disabled", "disabled");
+            var info = ko.mapping.toJS(vm);
+            $.post("/User/Verify", info, function (result) {
+                if (result) {
+                    location.href = "JQDataTablesTrail/Index";
+                } else {
+                    alert("登录失败");
+                    $btn.removeClass("disabled").removeAttr("disabled", "disabled");
+                    vm.loginBtnText("登录");
+                }
+            });
+        });
+    }
+
+    $(function() {
+        ko.applyBindings(vm, document.getElementsByTagName("body")[0]);
+        BindingEvents();
+    });
+
+
+</script>
+
 </body>
 </html>

@@ -88,10 +88,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap-3.3.5-dist\css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-3.3.5-dist\css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap-3.3.5-dist\css\bootstrap.css" />
+    <Content Include="css\bootstrap-3.3.5-dist\css\bootstrap.min.css" />
+    <Content Include="css\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\bootstrap-3.3.5-dist\js\bootstrap.js" />
+    <Content Include="css\bootstrap-3.3.5-dist\js\bootstrap.min.js" />
+    <Content Include="css\bootstrap-3.3.5-dist\js\npm.js" />
     <Content Include="Global.asax" />
     <Content Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="css\bootstrap-3.3.5-dist\css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-3.3.5-dist\css\bootstrap.css.map" />
+    <Content Include="css\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="css\bootstrap-3.3.5-dist\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jQuery\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jQueryPlugins\Datatables\jquery.dataTables.css" />
     <Content Include="Scripts\jQueryPlugins\Datatables\jquery.dataTables.js" />
@@ -99,6 +113,9 @@
     <Content Include="Scripts\jQueryPlugins\Datatables\jquery.dataTables.min.js" />
     <Content Include="Scripts\jQuery\jquery-2.2.3.js" />
     <Content Include="Scripts\jQuery\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\Knockout\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\Knockout\knockout-3.4.0.js" />
+    <Content Include="Scripts\Knockout\plugin\knockout.mapping-latest.js" />
     <Content Include="Scripts\ueditor\dialogs\anchor\anchor.html" />
     <Content Include="Scripts\ueditor\dialogs\attachment\attachment.css" />
     <Content Include="Scripts\ueditor\dialogs\attachment\attachment.html" />
@@ -379,6 +396,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JQDataTablesTrailController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -428,20 +446,36 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DAL\" />
     <Folder Include="Scripts\Modules\" />
     <Folder Include="Unit\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL.Proxy\BLL.Proxy.csproj">
+      <Project>{62f97eba-ba5c-4375-8e98-45ae033d9afe}</Project>
+      <Name>BLL.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{f08db312-6e31-4132-8b0f-ee0c87ddafea}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factory\Factory.csproj">
       <Project>{47da89ae-ab6d-43ec-9a6b-1ab39132cfff}</Project>
       <Name>Factory</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Global\Global.csproj">
+      <Project>{c2be7b4b-0101-485b-a92d-7acbc42646f8}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HelperUnit\HelperUnit.csproj">
       <Project>{8142b85f-b0c3-49ca-a3f7-fd4e7dae410d}</Project>
       <Name>HelperUnit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBLL\IBLL.csproj">
+      <Project>{0387d7e4-7446-4ea3-ada1-2392caef4467}</Project>
+      <Name>IBLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Models\Model.csproj">
       <Project>{7038a79a-4514-4fca-8bb9-a12f1153960b}</Project>

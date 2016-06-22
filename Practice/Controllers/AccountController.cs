@@ -82,7 +82,7 @@ namespace Practice.Controllers
             var user = new SysUser()
             {
                 Uid = uid,
-                Psd = psd
+                Psd = psd.ToMD5()
             };
             sysUser.Insert(user);
             sysUser.Submit();

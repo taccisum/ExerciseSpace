@@ -12,7 +12,7 @@ namespace Model.Context
     {
 
         public AccountContext()
-            : base(GlobalConfig.DataBase)
+            : base(GlobalContext.DATABASE)
         {
 
         }

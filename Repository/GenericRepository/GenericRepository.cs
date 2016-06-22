@@ -4,6 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
+using Global.Configs;
+using HelperUnit.Extend;
+using HelperUnit.Units;
 using Model.Context;
 using Model.Models;
 using Practice.Unit;
@@ -35,7 +38,13 @@ namespace Repository.GenericRepository
 
         public void Insert(T entity)
         {
+            var currentUser = db.SysUsers.FirstOrDefault(u => u.ID == CookiesHelper.Get(GlobalContext.CURRENT_USER).ToGuid());
+            if (currentUser == null)
+                throw new NotImplementedException();
+
             entity.ID = Guid.NewGuid();
+            entity.CreatedOn = DateTime.Now;
+            entity.CreatedBy = currentUser.ID;
 
             dbSet.Add(entity);
         }
