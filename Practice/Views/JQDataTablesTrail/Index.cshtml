@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutTest.cshtml";
+}
+
+@section script
+{
+    <script>
+        var dataSource = [
+            {
+                name: "Tiger Nixon",
+                position: "System Architect",
+                salary: "$3,120",
+                start_date: "2011/04/25",
+                office: "Edinburgh",
+                extn: "5421"
+            },
+            {
+                name: "Garrett Winters",
+                position: "Director",
+                salary: "$5,300",
+                start_date: "2011/07/25",
+                office: "Edinburgh",
+                extn: "8422"
+            }
+        ];
+
+        var Person = function(name,gender,age,country) {
+            this.name = name;
+            this.gender = gender;
+            this.age = age;
+            this.country = country;
+        }
+
+
+        $(function () {
+            $("#btn-user_list").bind("click", function() {
+                $('#table_id').DataTable({
+                    serverSide: true,
+                    ajax: {
+                        url: "/JQDataTablesTrail/GetUserList?pageindex=2",
+                        type:"get"
+                    },
+                    columns: [
+                        { data: 'ID', title: 'ID' },
+                        { data: 'UserName', title: 'Name' },
+                        { data: 'Password', title: 'Password' }
+                    ]
+                });
+            });
+
+
+
+            //$('#table_id').DataTable({
+            //    data: dataSource,
+            //    columns: [
+            //        { data: 'name', title: 'Name' },
+            //        { data: 'position', title: 'position' },
+            //        { data: 'salary', title: 'salary' },
+            //        { data: 'office', title: 'office' },
+            //        { data: 'extn', title: 'extn' }
+            //    ]
+            //});
+            //$('#table_id').DataTable({
+            //    data: [
+            //        new Person("Jack","Male","18","US"),
+            //        new Person("Cheung","Male","18","China"),
+            //        new Person("Makise","Female","17","Japan"),
+            //        new Person("Okabe","Male","18","Japan"),
+            //    ],
+            //    columns: [
+            //        { data: 'name', title: 'Name' },
+            //        { data: 'gender', title: 'Gender' },
+            //        { data: 'age', title: 'Age' },
+            //        { data: 'country', title: 'Country' },
+            //    ]
+            //});
+        });
+    </script>
+}
+
+<br/>
+
+<table id="table_id" class="display">
+</table>
+<br/><br/>
+
+<button id="btn-user_list">用户列表</button>

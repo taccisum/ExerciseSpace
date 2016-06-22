@@ -1,0 +1,41 @@
+﻿@using Practice.ViewModels
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+<div>
+    <div id="state">
+        @ViewBag.LoginState
+    </div>
+
+    @using (Html.BeginForm("login", "Account", FormMethod.Post))
+    {
+        <form method="POST" role="form">
+
+            用户名：<input type="text" style="width: 80px;" name="uid"/>
+            密码：<input type="password" style="width: 80px;" name="psd"/>
+            <button type="submit">登陆</button>
+            <button onclick="">注册</button>
+        </form>
+    }
+
+    @{
+        Html.RenderPartial("Footer", new FooterTestModel
+        {
+            CompanyName = "tac",
+            Year = "2016"
+        });
+    }
+
+</div>
+</body>
+</html>
