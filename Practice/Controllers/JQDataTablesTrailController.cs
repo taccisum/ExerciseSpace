@@ -5,7 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Factory;
 using log4net;
+using Model.Entity;
 using Model.Models;
+using Practice.Controllers.Attributes;
 using Practice.ViewModels;
 
 
@@ -13,18 +15,13 @@ namespace Practice.Controllers
 {
     public class JQDataTablesTrailController : BaseController
     {
-        // GET: JQDataTablesTrail
         public ActionResult Index()
         {
-
             if (Log.IsInfoEnabled)
                 Log.Info("获取默认视图");
 
-            return View(new LayoutTestModel()
-            {
-                Title = "jQuery Datatables",
-                SubTitle = "trial"
-            });
+            ViewBag.Title = "jQuery Datatables - trial";
+            return View();
         }
 
         public ActionResult GetUserList(int pageindex)
@@ -33,7 +30,7 @@ namespace Practice.Controllers
                 Log.Info("获取用户列表",new ApplicationException("hahaha"));
 
 
-            var users = RepositoryFactory.Create<SysUser>();
+            var users = RepositoryFactory.At<SysUser>();
             var list = users.Get(u => true).Select(u=>new
             {
                 u.ID,

@@ -8,6 +8,7 @@ using HelperUnit.Extend;
 using HelperUnit.Units;
 using IBLL.UserManager;
 using log4net;
+using Model.Common;
 using Model.Models;
 using GlobalContext = Global.Configs.GlobalContext;
 
@@ -23,6 +24,11 @@ namespace Practice.Controllers
         }
 
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
         {
             return View();
         }
@@ -48,6 +54,35 @@ namespace Practice.Controllers
             Log.Info("用户\"" + uid + "\"登录" + (valid ? "成功" : "失败"));
 
             return Json(valid, JsonRequestBehavior.DenyGet);
+        }
+
+        public ActionResult RegisterAccount(string uid, string psd, string rePsd)
+        {
+            if (psd != rePsd)
+            {
+                return Json(new ApiResult()
+                {
+                    Success = false,
+                    Data = null,
+                    Message = "两次输入的密码不相同"
+                },JsonRequestBehavior.DenyGet);
+            }
+            else
+            {
+                return Json(new ApiResult()
+                {
+                    Success = true,
+                    Data = _userBusiness.Register(uid,psd),
+                    Message = "注册成功"
+                }, JsonRequestBehavior.DenyGet);
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            CookiesHelper.Remove(GlobalContext.CURRENT_USER);
+            CookiesHelper.Remove(GlobalContext.AUTOLOGIN);
+            return View("Login");
         }
     }
 }

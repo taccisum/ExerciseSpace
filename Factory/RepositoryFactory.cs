@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.Models;
+using Model.Entity;
 using Practice.Unit;
 using Repository.GenericRepository;
 
@@ -18,7 +18,7 @@ namespace Factory
         }
 
 
-        public IGenericRepository<TModel> Create<TModel>() where TModel : DTO
+        public IGenericRepository<TModel> At<TModel>() where TModel : DTO
         {
             var key = typeof (TModel).FullName;
 

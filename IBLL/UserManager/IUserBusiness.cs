@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.Entity;
 using Model.Models;
 
 namespace IBLL.UserManager
@@ -9,8 +10,15 @@ namespace IBLL.UserManager
 
         Guid LoginVerify(string uid, string psd);
 
+        SysUser Register(SysUser user);
+
+        SysUser Register(string uid, string psd);
+
+
+
         Guid GenerateAutoLoginToken();
 
         SysUser GetById(Guid id);
+
     }
 }

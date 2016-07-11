@@ -44,12 +44,21 @@
   <ItemGroup>
     <Compile Include="BaseBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysMenuManager\SysMenuBusiness.cs" />
     <Compile Include="UserManager\UserBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomerException\CustomerException.csproj">
+      <Project>{293dea67-cc7d-4387-ab15-21b4e58e7ec1}</Project>
+      <Name>CustomerException</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factory\Factory.csproj">
       <Project>{47da89ae-ab6d-43ec-9a6b-1ab39132cfff}</Project>
       <Name>Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Global\Global.csproj">
+      <Project>{c2be7b4b-0101-485b-a92d-7acbc42646f8}</Project>
+      <Name>Global</Name>
     </ProjectReference>
     <ProjectReference Include="..\HelperUnit\HelperUnit.csproj">
       <Project>{8142b85f-b0c3-49ca-a3f7-fd4e7dae410d}</Project>

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace Model.Models
+namespace Model.Entity
 {
     public class DTO
     {
         public Guid ID { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         public DateTime CreatedOn { get; set; }
         public Guid CreatedBy { get; set; }

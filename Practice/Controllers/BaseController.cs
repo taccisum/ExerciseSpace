@@ -9,6 +9,7 @@ using HelperUnit.Extend;
 using HelperUnit.Units;
 using HelperUnit.Units.Log;
 using log4net;
+using Model.Entity;
 using Model.Models;
 using GlobalContext = Global.Configs.GlobalContext;
 
@@ -19,13 +20,13 @@ namespace Practice.Controllers
         protected RepositoryFactory RepositoryFactory = new RepositoryFactory();
         protected ILog Log;
 
-        protected SysUser CurrentUser
+
+        protected static SysUser CurrentUser
         {
             get
             {
                 var userId = CookiesHelper.Get(GlobalContext.CURRENT_USER).ToGuid();
-                return
-                    RepositoryFactory.Create<SysUser>().Get(u => u.ID == userId).FirstOrDefault();
+                return new RepositoryFactory().At<SysUser>().Get(u => u.ID == userId).FirstOrDefault();
             }
         }
 
@@ -39,17 +40,19 @@ namespace Practice.Controllers
         {
             base.OnActionExecuting(filterContext);
 
-            if (CurrentUser == null)
+            if (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "User" &&
+                filterContext.ActionDescriptor.ActionName == "Login" && CurrentUser != null)
             {
-                if (filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "User")
-                {
-                    CookiesHelper.Remove(GlobalContext.CURRENT_USER);
-                }
-                else
-                {
-                    filterContext.Result = new RedirectToRouteResult("Default",
-                        new RouteValueDictionary(new {controller = "User", action = "Login"}));
-                }
+                CookiesHelper.Remove(GlobalContext.CURRENT_USER);
+                CookiesHelper.Remove(GlobalContext.AUTOLOGIN);
+            }
+            else if (CurrentUser == null && !(
+                filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "User" &&
+                (filterContext.ActionDescriptor.ActionName == "Verify" || filterContext.ActionDescriptor.ActionName == "Login")
+                ))
+            {
+                filterContext.Result = new RedirectToRouteResult("Default",
+                    new RouteValueDictionary(new {controller = "User", action = "Login"}));
             }
         }
 
@@ -57,7 +60,6 @@ namespace Practice.Controllers
         {
             base.OnException(filterContext);
             Log.Error("调用API的过程中发生了未经处理的异常", filterContext.Exception);
-
         }
     }
 }

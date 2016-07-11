@@ -47,11 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ApiResult.cs" />
     <Compile Include="Context\AccountContext.cs" />
-    <Compile Include="Initial\AccountInitial.cs" />
-    <Compile Include="Models\DTO.cs" />
+    <Compile Include="Entity\DTO.cs" />
+    <Compile Include="Entity\SysMenu.cs" />
     <Compile Include="Models\SysRole.cs" />
-    <Compile Include="Models\SysUser.cs" />
+    <Compile Include="Entity\SysUser.cs" />
     <Compile Include="Models\SysUserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +66,7 @@
       <Name>Global</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

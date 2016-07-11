@@ -46,12 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenericRepository\GenericRepositoryProxy.cs" />
     <Compile Include="GenericRepository\GenericRepository.cs" />
     <Compile Include="IGenericRepository\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CustomerException\CustomerException.csproj">
+      <Project>{293dea67-cc7d-4387-ab15-21b4e58e7ec1}</Project>
+      <Name>CustomerException</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Global\Global.csproj">
       <Project>{c2be7b4b-0101-485b-a92d-7acbc42646f8}</Project>
       <Name>Global</Name>

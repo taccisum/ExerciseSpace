@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+using Model.Models;
 
-namespace Model.Models
+namespace Model.Entity
 {
     [Table("dbo.SysUser")]
     public class SysUser : DTO

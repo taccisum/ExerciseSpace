@@ -1,9 +1,9 @@
 ﻿
 @{
-    Layout = "~/Views/Shared/_LayoutTest.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section script
+@section head
 {
     <script>
         var dataSource = [
@@ -49,9 +49,12 @@
                 });
             });
 
+            $("#btn-jupm").bind("click", function() {
+                location.href = "/AceTest/Index";
+            });
 
 
-            //$('#table_id').DataTable({
+//$('#table_id').DataTable({
             //    data: dataSource,
             //    columns: [
             //        { data: 'name', title: 'Name' },
@@ -79,10 +82,15 @@
     </script>
 }
 
-<br/>
+<div class="area-operation">
+    <div class="area-button">
+        <button id="btn-user_list" class="btn btn-primary btn-sm">用户列表</button>
+        <button id="btn-jupm" class="btn btn-default btn-sm">跳转</button>
+    </div>
+</div>
 
-<table id="table_id" class="display">
-</table>
-<br/><br/>
 
-<button id="btn-user_list">用户列表</button>
+<div class="area-display">
+    <table id="table_id" class="display"></table>
+</div>
+

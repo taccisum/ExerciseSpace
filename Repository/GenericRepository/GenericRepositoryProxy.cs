@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
-using Model.Models;
+using Model.Entity;
 using Practice.Unit;
 using Repository.GenericRepository;
 
 namespace Repository.GenericRepository
 {
-    public class ValidateProxy<T> : IGenericRepository<T> where T : DTO
+    public class GenericRepositoryProxy<T> : IGenericRepository<T> where T : DTO
     {
         private readonly IGenericRepository<T> _baseCrud = new GenericRepository<T>();
 
-        public IQueryable<T> Get(Expression<Func<T, bool>> expression)
+        public IQueryable<T> Get(bool isDeleted = false)
+        {
+            return Get(t => true);
+        }
+
+        public IQueryable<T> Get(Expression<Func<T, bool>> expression,bool isDeleted = false)
         {
             return _baseCrud.Get(expression);
         }
 
-        public T GetById(object primaryKey)
+        public T GetEntryByPrimaryKey(params object[] primaryKey)
         {
-            return _baseCrud.GetById(primaryKey);
+            return _baseCrud.GetEntryByPrimaryKey(primaryKey);
         }
 
         public void Insert(T entity)

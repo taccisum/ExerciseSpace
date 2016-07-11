@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Global.Configs;
+using Model.Entity;
 using Model.Models;
 
 namespace Model.Context
@@ -12,7 +13,7 @@ namespace Model.Context
     {
 
         public AccountContext()
-            : base(GlobalContext.DATABASE)
+            : base("name=AccountContext")
         {
 
         }
@@ -21,6 +22,7 @@ namespace Model.Context
         public DbSet<SysRole> SysRoles { get; set; }
         public DbSet<SysUserRole> SysUserRoles { get; set; }
 
+        public DbSet<SysMenu> SysMenu { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

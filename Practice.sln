@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBLL", "IBLL\IBLL.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL.Proxy", "BLL.Proxy\BLL.Proxy.csproj", "{62F97EBA-BA5C-4375-8E98-45AE033D9AFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerException", "CustomerException\CustomerException.csproj", "{293DEA67-CC7D-4387-AB15-21B4E58E7EC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{62F97EBA-BA5C-4375-8E98-45AE033D9AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62F97EBA-BA5C-4375-8E98-45AE033D9AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62F97EBA-BA5C-4375-8E98-45AE033D9AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293DEA67-CC7D-4387-AB15-21B4E58E7EC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293DEA67-CC7D-4387-AB15-21B4E58E7EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293DEA67-CC7D-4387-AB15-21B4E58E7EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293DEA67-CC7D-4387-AB15-21B4E58E7EC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
