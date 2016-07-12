@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using Factory;
 using log4net;
 using Model.Entity;
-using Model.Models;
 using Practice.Controllers.Attributes;
 using Practice.ViewModels;
 

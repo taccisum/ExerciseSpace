@@ -10,7 +10,6 @@ using HelperUnit.Units;
 using HelperUnit.Units.Log;
 using log4net;
 using Model.Entity;
-using Model.Models;
 using GlobalContext = Global.Configs.GlobalContext;
 
 namespace Practice.Controllers

@@ -464,9 +464,7 @@
     <Compile Include="Scripts\ueditor\net\App_Code\NotSupportedHandler.cs" />
     <Compile Include="Scripts\ueditor\net\App_Code\PathFormater.cs" />
     <Compile Include="Scripts\ueditor\net\App_Code\UploadHandler.cs" />
-    <Compile Include="ViewModels\FooterTestModel.cs" />
     <Compile Include="ViewModels\LayoutTestModel.cs" />
-    <Compile Include="ViewModels\TestModel.cs" />
     <Compile Include="Views\Test\AceTestController.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,5 @@
 ﻿using System;
 using Model.Entity;
-using Model.Models;
 
 namespace IBLL.UserManager
 {
