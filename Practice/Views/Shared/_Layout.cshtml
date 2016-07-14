@@ -21,7 +21,7 @@
     <script src="/Scripts/Knockout/knockout-3.4.0.debug.js"></script>
     <script src="/Scripts/Knockout/plugin/knockout.mapping-latest.js"></script>
 
-    <link href="~/Scripts/jQueryPlugins/artDialog/css/ui-dialog.css" rel="stylesheet"/>
+    <link href="~/Scripts/jQueryPlugins/artDialog/css/ui-dialog.css" rel="stylesheet" />
     <script src="~/Scripts/jQueryPlugins/artDialog/dist/dialog-min.js"></script>
 
 
@@ -31,15 +31,14 @@
         .colorpick-div {
             margin: 5px 0;
         }
-
     </style>
 
 </head>
 <body class="skin-4">
 
 
-@* navbar *@
-    <div class="navbar navbar-default" >
+    @* navbar *@
+    <div class="navbar navbar-default">
         <div class="navbar-container">
             <div class="navbar-header pull-left">
                 <a href="/JQDataTablesTrail/Index" class="navbar-brand"><i class="icon-github"></i> Taccisum!</a>
@@ -92,7 +91,7 @@
                             <i class="icon-cog" style="font-size: 20px; margin-top: 10px;"></i>
                             <span class="user-info">
                                 <small>欢迎您</small>
-                                 Tac
+                                Tac
                             </span>
 
                             <i class="icon-caret-down"></i>
@@ -111,140 +110,163 @@
         </div>
     </div>
 
-<div class="main-container" id="main-container">
-    @*sidebar*@
-    <div class="main-container-inner">
-        <a class="menu-toggler" id="menu-toggler" href="#">
-            <span class="menu-text"></span>
-        </a>
-        <div class="sidebar" id="sidebar">
-            @* short cuts *@
-            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                <div class="sidebar-shortcuts-large">
-                    <button class="btn btn-success"><i class="icon-lemon"></i></button>
-                    <button class="btn btn-info"><i class="icon-comments"></i></button>
-                    <button class="btn btn-warning"><i class="icon-globe"></i></button>
-                    <button class="btn btn-danger"><i class="icon-home"></i></button>
-                </div>
-                <div class="sidebar-shortcuts-mini">
-                    <span class="btn btn-success"></span>
-                    <span class="btn btn-info"></span>
-                    <span class="btn btn-warning"></span>
-                    <span class="btn btn-danger"></span>
-                </div>
-            </div>
-
-            <div class="sidebar-shortcuts">
-                <div class="sidebar-shortcuts-large" style="line-height: 34px;"> @*设置line-height修正ace style造成的样式错乱*@
-                    @* menu searcher *@
-                    <div id="menu-searcher" class="input-group input-group-merge" style="padding: 3px 6px;">
-                        <input class="form-control input-md left" type="text"/>
-                        <span class="input-group-btn right" style="margin: 0"><button class="btn btn-white btn-md">&nbsp;<i class="icon-map-marker"></i></button></span>
+    <div class="main-container" id="main-container">
+        @*sidebar*@
+        <div class="main-container-inner">
+            <a class="menu-toggler" id="menu-toggler" href="#">
+                <span class="menu-text"></span>
+            </a>
+            <div class="sidebar" id="sidebar">
+                @* short cuts *@
+                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                    <div class="sidebar-shortcuts-large">
+                        <button class="btn btn-success"><i class="icon-lemon"></i></button>
+                        <button class="btn btn-info"><i class="icon-comments"></i></button>
+                        <button class="btn btn-warning"><i class="icon-globe"></i></button>
+                        <button class="btn btn-danger"><i class="icon-home"></i></button>
+                    </div>
+                    <div class="sidebar-shortcuts-mini">
+                        <span class="btn btn-success"></span>
+                        <span class="btn btn-info"></span>
+                        <span class="btn btn-warning"></span>
+                        <span class="btn btn-danger"></span>
                     </div>
                 </div>
-                <div class="sidebar-shortcuts-mini">
+
+                <div class="sidebar-shortcuts">
+                    <div class="sidebar-shortcuts-large" style="line-height: 34px;">
+                        @*设置line-height修正ace style造成的样式错乱*@
+                        @* menu searcher *@
+                        <div id="menu-searcher" class="input-group input-group-merge" style="padding: 3px 6px;">
+                            <input class="form-control input-md left" type="text" />
+                            <span class="input-group-btn right" style="margin: 0"><button class="btn btn-white btn-md">&nbsp;<i class="icon-map-marker"></i></button></span>
+                        </div>
+                    </div>
+                    <div class="sidebar-shortcuts-mini">
+                    </div>
+                </div>
+
+
+                @* nav list *@
+                <ul class="nav nav-list" id="nav-list"></ul>
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
                 </div>
             </div>
+            <div class="main-content">
+                <div class="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li><i class="icon-coffee home-icon"></i><a href="#">面</a></li>
+                        <li><a href="#">包</a></li>
+                        <li>屑</li>
+                    </ul>
+                </div>
+                <div class="page-content">
+                    <div class="area-operation">
+                        <div class="area-info alert alert-success" style="display: none;">
+                            @RenderSection("tips", required: false)
+                        </div>
+                        <div class="area-param alert alert-info" style="display: none;">
+                            @RenderSection("parameters", required: false)
+                        </div>
+                        <div class="area-button" style="display: none;">
+                            @RenderSection("buttons", required: false)
+                        </div>
+                    </div>
+                    <div class="area-display">
+                        @RenderBody()
+                    </div>
 
-
-            @* nav list *@
-            <ul class="nav nav-list" id="nav-list">
-
-            </ul>
-            <div class="sidebar-collapse" id="sidebar-collapse">
-                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li><i class="icon-coffee home-icon"></i><a href="#">面</a></li>
-                    <li><a href="#">包</a></li>
-                    <li>屑</li>
-                </ul>
-            </div>
-            <div class="page-content">
-                @RenderBody()
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     @* autocomplete container *@
-<div id="jq-ui-autocomplete-1" class="ui-front"></div>
-<div id="jq-ui-autocomplete-2" class="ui-front"></div>
+    <div id="jq-ui-autocomplete-1" class="ui-front"></div>
+    <div id="jq-ui-autocomplete-2" class="ui-front"></div>
 
-<script>
+    <script>
 
-    var sidebar;
+        var sidebar;
 
-    (function() {
-        $(function() {
-            function pointAtMenu(id) {
-                if (sidebar.GetMenuById(id).length > 0) {
-                    sidebar.CollapseAllMenu(false);
-                    sidebar.OpenMenu(id, false);
-                } else {
-                    alert("无搜索结果");
+        (function () {
+            $(function () {
+                function pointAtMenu(id) {
+                    if (sidebar.GetMenuById(id).length > 0) {
+                        sidebar.CollapseAllMenu(false);
+                        sidebar.OpenMenu(id, false);
+                    } else {
+                        alert("无搜索结果");
+                    }
                 }
-            }
 
-            function bindMenuSearcher(array) {
-                var acArray = new List(array).divide(["ID", "Name", "Description"], ["value", "label", "desc"]).getArray();
+                function bindMenuSearcher(array) {
+                    var acArray = new List(array).divide(["ID", "Name", "Description"], ["value", "label", "desc"]).getArray();
 
-                var $input = $("#menu-searcher").find("input");
-                var $btn = $("#menu-searcher").find("button");
+                    var $input = $("#menu-searcher").find("input");
+                    var $btn = $("#menu-searcher").find("button");
 
-                $input.autocomplete_proxy({
-                    source: acArray,
-                    width: 170,
-                    height: 400,
-                    descFormatter: function(item) {
-                        if ($.isNullOrEmptyString(item.desc)) {
-                            return "";
-                        } else {
-                            return "desc: " + item.desc;
-                        }
-                    },
+                    $input.autocomplete_proxy({
+                        source: acArray,
+                        width: 168,
+                        height: 400,
+                        descFormatter: function (item) {
+                            if ($.isNullOrEmptyString(item.desc)) {
+                                return "";
+                            } else {
+                                return "desc: " + item.desc;
+                            }
+                        },
 
-                });
+                    });
 
-                $btn.bind("click", function() {
-                    var targetId = $input.attr("data-val");
-                    pointAtMenu(targetId);
-                });
-            }
-
-
-            function bindShortCuts() {
-                $("#sidebar-shortcuts .btn-success").bind("click", function() {
-                    dialog({
-                        
-                        content: "lemon",
-                        quickClose: true,
-                    }).showModal(this);
-                });
-            }
-
-            //初始化sidebar
-            $.get("/CommonInfo/Menus", function(result) {
-                if (result.Success) {
-                    sidebar = new Sidebar("#nav-list");
-                    sidebar.AddMenus(result.Data);
-
-                    sidebar.OpenMenu(sidebar.GetCurrentMenu().attr("data-id"), true);
-                    bindMenuSearcher(result.Data);
-                    bindShortCuts();
-                } else {
-                    alert(result.Message);
+                    $btn.bind("click", function () {
+                        var targetId = $input.attr("data-val");
+                        pointAtMenu(targetId);
+                    });
                 }
+
+
+                function bindShortCuts() {
+                    $("#sidebar-shortcuts .btn-success").bind("click", function () {
+                        dialog({
+                            id: "dialog-lemon",
+                            title: "lemon",
+                            content: "<input autofocus />",
+                            fixed: true,
+                        }).showModal();
+                    });
+
+                    $("#sidebar-shortcuts .btn-info").bind("click", function () {
+                        dialog({
+                            id: "dialog-chat",
+                            content: "hello, let's chat~",
+                            quickClose: true,
+
+                        }).show(this);
+                    });
+                }
+
+                //初始化sidebar
+                $.get("/CommonInfo/Menus", function (result) {
+                    if (result.Success) {
+                        sidebar = new Sidebar("#nav-list");
+                        sidebar.AddMenus(result.Data);
+
+                        sidebar.OpenMenu(sidebar.GetCurrentMenu().attr("data-id"), true);
+                        bindMenuSearcher(result.Data);
+                        bindShortCuts();
+                    } else {
+                        alert(result.Message);
+                    }
+                });
             });
-        });
-    })();
+        })();
 
 
 
-</script>
+    </script>
 
 
 

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Tac - 菜单管理";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
@@ -37,85 +36,81 @@
 
 }
 
-<div class="area-operation">
 
-    <div class="area-info bold">
-        <span>一些提示信息……</span>
-        <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
-    </div>
+@section tips{
+    <span class="bold">一些提示信息……</span>
+    <button type="button" class="close" data-dismiss="alert"><i class="icon-remove"></i></button>
+}
 
-    <div class="area-param">
-        <div class="container" style="width: 100%;">
-            <div class="row">
-                <div class="col-xs-6 col-md-3">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">Name</span><input class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">Url</span><input class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">Icon</span><input class="form-control" type="text"/>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">EnabledState</span><input class="form-control" type="text"/>
-                    </div>
+@section parameters{
+    <div class="container" style="width: 100%;">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">Name</span><input class="form-control" type="text" />
                 </div>
             </div>
-
-            <br/>
-
-            <div class="row">
-
-                <div class="col-xs-6 col-md-3">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">Description</span><input class="form-control" type="text"/>
-                    </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">Url</span><input class="form-control" type="text" />
                 </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">CreatedOn</span><input class="form-control" type="text"/>
-                    </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">Icon</span><input class="form-control" type="text" />
                 </div>
-                <div class="col-xs-12 col-md-6">
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon bold">CreatedOn</span>
-                        <input id="date-picker-1" class="form-control date-picker click" type="text"/>
-                        <span class="input-group-addon">到</span>
-                        <input id="date-picker-2" class="form-control date-picker click" type="text"/>
-                    </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">EnabledState</span><input class="form-control" type="text" />
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+
+            <div class="col-xs-6 col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">Description</span><input class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">CreatedOn</span><input class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-addon bold">CreatedOn</span>
+                    <input id="date-picker-1" class="form-control date-picker click" type="text" />
+                    <span class="input-group-addon">到</span>
+                    <input id="date-picker-2" class="form-control date-picker click" type="text" />
                 </div>
             </div>
         </div>
     </div>
+}
 
-    <div class="area-button">
-        <div style="position: absolute; right: 20px; bottom: 0; z-index: 0;">
-            <div class="checkbox">
-                <label>
-                    <input name="form-field-checkbox" type="checkbox" class="ace">
-                    <span class="lbl"> 复选框 1</span>
-                </label>
-                <label>
-                    <input name="form-field-checkbox" type="checkbox" class="ace ace-checkbox-2">
-                    <span class="lbl"> 复选框 2</span>
-                </label>
-            </div>
+@section buttons{
+    <div style="position: absolute; right: 20px; bottom: 0; z-index: 0;">
+        <div class="checkbox">
+            <label>
+                <input name="form-field-checkbox" type="checkbox" class="ace">
+                <span class="lbl"> 复选框 1</span>
+            </label>
+            <label>
+                <input name="form-field-checkbox" type="checkbox" class="ace ace-checkbox-2">
+                <span class="lbl"> 复选框 2</span>
+            </label>
         </div>
-
-        <button class="btn btn-sm tooltip-info"><i class="icon-search"></i> 查询 </button>
-        <span class="btn btn-success btn-sm"><i class="icon-plus"></i> 添加 </span>
-        <button class="btn btn-danger btn-sm"><i class="icon-remove"></i> 删除 </button>
-        <button class="btn btn-primary btn-sm"><i class="icon-refresh"></i> 刷新 </button>
     </div>
-</div>
 
-<div class="area-display">
-    <table id="table_id" class="display"></table>
-</div>
+    <button class="btn btn-sm tooltip-info"><i class="icon-search"></i> 查询 </button>
+    <span class="btn btn-success btn-sm"><i class="icon-plus"></i> 添加 </span>
+    <button class="btn btn-danger btn-sm"><i class="icon-remove"></i> 删除 </button>
+    <button class="btn btn-primary btn-sm"><i class="icon-refresh"></i> 刷新 </button>
+}
+
+<table id="table_id" class="display"></table>

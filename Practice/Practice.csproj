@@ -120,8 +120,9 @@
     <Content Include="css\bootstrap-3.3.5-dist\js\bootstrap.js" />
     <Content Include="css\bootstrap-3.3.5-dist\js\bootstrap.min.js" />
     <Content Include="css\bootstrap-3.3.5-dist\js\npm.js" />
+    <Content Include="css\commonstyle.css" />
     <Content Include="css\mystyle.css" />
-    <Content Include="css\mystyle.js" />
+    <Content Include="css\commonstyle.js" />
     <Content Include="Global.asax" />
     <Content Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

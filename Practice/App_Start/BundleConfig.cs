@@ -39,7 +39,8 @@ namespace Practice
 
             //系统通用的css
             bundles.Add(new StyleBundle("~/bundles/css/common")
-                .Include("~/css/mystyle.css"));
+                .Include("~/css/mystyle.css",
+                    "~/css/commonstyle.css"));
             #endregion
 
             #region js
@@ -60,7 +61,7 @@ namespace Practice
 
             //系统通用的js
             bundles.Add(new ScriptBundle("~/bundles/js/common")
-                .Include("~/css/mystyle.js",
+                .Include("~/css/commonstyle.js",
                     "~/Scripts/Common/CommonClass.js",
                     "~/Scripts/Modules/Layout/Sidebar.js",
                     "~/Scripts/jQueryPlugins/CommonTools.js",
